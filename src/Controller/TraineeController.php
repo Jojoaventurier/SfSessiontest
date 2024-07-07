@@ -17,4 +17,6 @@ class TraineeController extends AbstractController
             'trainees' => $trainees,
         ]);
     }
+
+    
 }
