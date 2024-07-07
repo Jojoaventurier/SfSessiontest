@@ -32,6 +32,9 @@ class Trainee
     #[ORM\Column(length: 50)]
     private ?string $phoneNumber = null;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $city = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,8 +83,16 @@ class Trainee
 
     public function getBirthDateFr(): ?string
     {
-        return $this->dateCreation->format("d-m-Y");
+        return $this->birthDate->format("d-m-Y");
     }
+
+    public function getAge(): ?string
+    {
+        $now = new \DateTime();
+        $interval = $this->birthDate->diff($now);
+        return $interval->format('%Y');
+    }
+
     public function setBirthDate(\DateTimeInterface $birthDate): static
     {
         $this->birthDate = $birthDate;
@@ -115,5 +126,17 @@ class Trainee
 
     public function __toString() {
         return $this->firstName." ". $this->lastName;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): static
+    {
+        $this->city = $city;
+
+        return $this;
     }
 }
