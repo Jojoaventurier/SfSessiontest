@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Form;
+
+use App\Entity\Trainee;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class TraineeType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('firstName')
+            ->add('lastName')
+            ->add('gender')
+            ->add('birthDate', null, [
+                'widget' => 'single_text',
+            ])
+            ->add('email')
+            ->add('phoneNumber')
+            ->add('city')
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Trainee::class,
+        ]);
+    }
+}
