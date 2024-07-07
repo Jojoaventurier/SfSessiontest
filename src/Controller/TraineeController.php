@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Trainee;
 use App\Form\TraineeType;
 use App\Repository\TraineeRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -23,7 +24,7 @@ class TraineeController extends AbstractController
 
     
     #[Route('/trainee/new', name: 'new_trainee')]
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $trainee = new Trainee();
 
@@ -32,6 +33,8 @@ class TraineeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $trainee = $form->getData();
             $entityManager->persist($trainee);
             $entityManager->flush();
 
