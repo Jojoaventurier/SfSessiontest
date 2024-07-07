@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} <!-- récupère le layout de base-->
 
 {% block title %}Détail d'un stagiaire{% endblock %}
 
 {% block body %}
     <h1>Page Stagiaire</h1>
 
-    <h2>{{ trainee }}</h2>
+    <h2>{{ trainee }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
 
     <p>
         Sexe : {{ trainee.gender }}<br>
