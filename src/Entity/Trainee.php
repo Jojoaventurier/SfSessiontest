@@ -78,6 +78,10 @@ class Trainee
         return $this->birthDate;
     }
 
+    public function getBirthDateFr(): ?string
+    {
+        return $this->dateCreation->format("d-m-Y");
+    }
     public function setBirthDate(\DateTimeInterface $birthDate): static
     {
         $this->birthDate = $birthDate;
