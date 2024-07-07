@@ -21,9 +21,9 @@ class TraineeType extends AbstractType
             ->add('birthDate', DateType::class, [
                 'widget' => 'single_text',
             ])
-            ->add('email')
-            ->add('phoneNumber')
-            ->add('city')
+            ->add('email') //TODO: regarder la classe dans symfony
+            ->add('phoneNumber') //TODO: regarder la classe dans symfony
+            ->add('city', TextType::class) 
             ->add('valider', SubmitType::class)
         ;
     }
