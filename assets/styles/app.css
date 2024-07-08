@@ -43,6 +43,14 @@ nav a{
     justify-content: center;
 }
 
+h1 {
+    margin: 15px 0;
+}
+
+h2 {
+    margin: 15px 0;
+}
+
 /*==================================LISTE STAGIAIRES=================================== */
 
 .btnDiv {
@@ -88,7 +96,7 @@ td:hover a {
 
 #traineeBox {
     background-color: rgb(21,56,178, 0.6);
-    padding: 30px;
+    padding: 10px 30px;
     margin: 30px 0;
 }
 
@@ -100,10 +108,6 @@ td:hover a {
     margin: 25px 0;
 }
 
-#traineeBox h2 {
-    margin: 15px 0;
-}
-
 .editBtn {
     color: white;
     border: solid 2px white;
@@ -111,14 +115,23 @@ td:hover a {
     text-decoration: none;
 }
 
+.editBtn:hover {
+    color: rgb(21,56,178, 0.6);
+    background-color: white;
+}
+
 .deleteBtn {
     color: white;
+    text-decoration: none;
     background-color: rgb(235, 72, 72, 0.78);
     padding: 15px;
-    /* margin: 10px; */
-    height: 10px;
     width: fit-content;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    opacity: 1;
+}
+
+.deleteBtn:hover {
+    opacity: 0.8;
 }
 
 .centree {
