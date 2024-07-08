@@ -3,27 +3,38 @@
 {% block title %}Ajouter un stagiaire{% endblock %}
 
 {% block body %}
-    {% if edit %}
-        <h1>Modifier le/la stagiaire</h1>
-    {% else %}
-        <h1>Ajouter un/une stagiaire</h1>
-    {% endif %}
 
-    {{ form_start(formAddTrainee) }}
-    <div class='row'>
-        <div class='col-sm'>
-            {{ form_row(formAddTrainee.lastName) }}
+<div class="wrapper">
+    <div class='centered'>
+        <div id="traineeBox">
+            {% if edit %}
+                <h1>Modifier le/la stagiaire</h1>
+            {% else %}
+                <h1>Ajouter un/une stagiaire</h1>
+            {% endif %}
+
+            {{ form_start(formAddTrainee) }}
+                <div class='row'>
+                    <div class='col-sm'>
+                        {{ form_row(formAddTrainee.lastName) }}
+                    </div>
+                        {{ form_row(formAddTrainee.firstName) }}
+                        {{ form_row(formAddTrainee.gender) }}
+                        {{ form_row(formAddTrainee.birthDate) }}
+                        {{ form_row(formAddTrainee.email) }}
+                        {{ form_row(formAddTrainee.phoneNumber) }}
+                        {{ form_row(formAddTrainee.city) }}
+                        {{ form_row(formAddTrainee.valider) }}
+                </div>
+            {{ form_end(formAddTrainee) }}
         </div>
-        {{ form_row(formAddTrainee.firstName) }}
-        {{ form_row(formAddTrainee.gender) }}
-        {{ form_row(formAddTrainee.birthDate) }}
-        {{ form_row(formAddTrainee.email) }}
-        {{ form_row(formAddTrainee.phoneNumber) }}
-        {{ form_row(formAddTrainee.city) }}
-        {{ form_row(formAddTrainee.valider) }}
-        
     </div>
-    {{ form_end(formAddTrainee) }}
+
+    {% if edit %}
+        <a class='deleteBtn'>Supprimer la fiche</a>
+    {% endif %}
+    
+</div>
 
    
 

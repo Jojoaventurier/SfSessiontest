@@ -1,3 +1,64 @@
 body {
-    background-color: skyblue;
+    background-color: white;
+}
+
+nav {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0025A8;
+}
+
+li {
+    list-style: none;
+    display: inline;
+    padding: 0 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*================================PAGE STAGIAIRE====================================== */
+
+
+#traineeBox {
+    background-color: #1538B2;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+#traineeBox p,h1,h2 {
+    color: white;
+}
+
+.editBtn {
+    color: white;
+    border: solid 2px white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.deleteBtn {
+    color: white;
+    background-color: red;
+    padding: 15px;
+    /* margin: 10px; */
+    height: 10px;
+    width: fit-content;
 }

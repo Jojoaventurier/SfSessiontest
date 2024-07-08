@@ -3,19 +3,25 @@
 {% block title %}Stagiaires{% endblock %}
 
 {% block body %}
-    <h1>Page Stagiaire</h1>
 
-    <h2>{{ trainee }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
+    <div class="wrapper">
+        <div class='centered'>
+            <div id="traineeBox">
+                <h1>Fiche Stagiaire</h1>
+                <h2>{{ trainee }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
+                    <p>
+                        Sexe : {{ trainee.gender }}<br>
+                        Date de naissance : {{ trainee.birthDateFr }} ({{ trainee.age }} ans)<br>
+                        Courriel : {{ trainee.email }}<br>
+                        Téléphone : {{ trainee.phoneNumber}}<br>
+                        Ville : {{ trainee. city }}<br>
+                    </p>
+                    <a class='editBtn' href="{{ path('edit_trainee', {'id': trainee.id}) }}">MODIFIER</a>
 
-    <p>
-        Sexe : {{ trainee.gender }}<br>
-        Date de naissance : {{ trainee.birthDateFr }} ({{ trainee.age }} ans)<br>
-        Courriel : {{ trainee.email }}<br>
-        Téléphone : {{ trainee.phoneNumber}}<br>
-        Ville : {{ trainee. city }}<br>
-    </p>
-    <a href="{{ path('edit_trainee', {'id': trainee.id}) }}">Modifer</a>
-
-    <h2>Sessions prévues</h2>
+                <h2>Sessions prévues</h2>
+            </div>
+        </div>
+        <a class='deleteBtn'>Supprimer la fiche</a>
+    </div>
 
 {% endblock %}
