@@ -5,6 +5,23 @@
 {% block body %}
     <h1>Ajouter un stagiaire</h1>
 
-    {{ form(formAddTrainee) }} <!--TODO: développer le formulaire pour personnaliser l'affichage-->
+    {# {{ form(formAddTrainee) }}  #}
+
+    {{ form_start(formAddTrainee) }}
+    <div class='row'>
+        <div class='col-sm'>
+            {{ form_row(formAddTrainee.lastName) }}
+        </div>
+        {{ form_row(formAddTrainee.firstName) }}
+        {{ form_row(formAddTrainee.gender) }}
+        {{ form_row(formAddTrainee.birthDate) }}
+        {{ form_row(formAddTrainee.email) }}
+        {{ form_row(formAddTrainee.phoneNumber) }}
+        {{ form_row(formAddTrainee.city) }}
+        {{ form_row(formAddTrainee.valider) }}
+        
+    </div>
+
+    {{ form_end(formAddTrainee) }}
 
 {% endblock %}
