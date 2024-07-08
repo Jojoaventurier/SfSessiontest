@@ -6,7 +6,8 @@
     <h1>Liste des stagiaires</h1>
 
     {% for trainee in trainees %}
-        <a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a><br> <!--lien vers l'affichage du détail d'un stagiaire-->
+        <a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
+        <a href="{{ path('delete_trainee', {'id': trainee.id}) }}">(Supprimer)</a><br> <!--lien vers l'affichage du détail d'un stagiaire-->
     {% endfor %}
 
     <a href="{{ path('new_trainee') }}">Ajouter un stagiaire</a><!--lien pour ajouter un stagiaire à la BDD-->

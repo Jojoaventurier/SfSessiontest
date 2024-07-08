@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %} <!-- récupère le layout de base-->
+{% extends 'base.html.twig' %}
 
-{% block title %}Détail d'un stagiaire{% endblock %}
+{% block title %}Stagiaires{% endblock %}
 
 {% block body %}
     <h1>Page Stagiaire</h1>
@@ -14,7 +14,7 @@
         Téléphone : {{ trainee.phoneNumber}}<br>
         Ville : {{ trainee. city }}<br>
     </p>
-    <a href="{{ path('edit_entreprise', {'id': trainee.id}) }}">Modifer</a>
+    <a href="{{ path('edit_trainee', {'id': trainee.id}) }}">Modifer</a>
 
     <h2>Sessions prévues</h2>
 

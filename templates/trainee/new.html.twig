@@ -3,9 +3,11 @@
 {% block title %}Ajouter un stagiaire{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un stagiaire</h1>
-
-    {# {{ form(formAddTrainee) }}  #}
+    {% if edit %}
+        <h1>Modifier le/la stagiaire</h1>
+    {% else %}
+        <h1>Ajouter un/une stagiaire</h1>
+    {% endif %}
 
     {{ form_start(formAddTrainee) }}
     <div class='row'>
@@ -21,7 +23,8 @@
         {{ form_row(formAddTrainee.valider) }}
         
     </div>
-
     {{ form_end(formAddTrainee) }}
+
+   
 
 {% endblock %}

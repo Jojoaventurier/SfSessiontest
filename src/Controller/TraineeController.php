@@ -46,6 +46,7 @@ class TraineeController extends AbstractController
 
         return $this->render('trainee/new.html.twig', [
             'formAddTrainee' => $form,
+            'edit' => $trainee->getId()
         ]);
     }
 
@@ -56,6 +57,15 @@ class TraineeController extends AbstractController
         return $this->render('trainee/show.html.twig', [
             'trainee' => $trainee,
         ]);
+    }
+
+    #[Route('/trainee/{id}/delete', name: 'delete_trainee')]
+    public function delete(Trainee $trainee, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($trainee);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_trainee');
     }
 
 }
