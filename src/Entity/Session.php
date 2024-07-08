@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SessionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,20 @@ class Session
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $endDate = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sessions')]
+    private ?Training $training = null;
+
+    /**
+     * @var Collection<int, Trainee>
+     */
+    #[ORM\ManyToMany(targetEntity: Trainee::class, inversedBy: 'sessions')]
+    private Collection $trainee;
+
+    public function __construct()
+    {
+        $this->trainee = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +91,42 @@ class Session
     public function setEndDate(?\DateTimeInterface $endDate): static
     {
         $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    public function getTraining(): ?Training
+    {
+        return $this->training;
+    }
+
+    public function setTraining(?Training $training): static
+    {
+        $this->training = $training;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Trainee>
+     */
+    public function getTrainee(): Collection
+    {
+        return $this->trainee;
+    }
+
+    public function addTrainee(Trainee $trainee): static
+    {
+        if (!$this->trainee->contains($trainee)) {
+            $this->trainee->add($trainee);
+        }
+
+        return $this;
+    }
+
+    public function removeTrainee(Trainee $trainee): static
+    {
+        $this->trainee->removeElement($trainee);
 
         return $this;
     }

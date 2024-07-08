@@ -16,6 +16,9 @@ class Unit
     #[ORM\Column(length: 100)]
     private ?string $unitName = null;
 
+    #[ORM\ManyToOne(inversedBy: 'units')]
+    private ?Category $category = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Unit
     public function setUnitName(string $unitName): static
     {
         $this->unitName = $unitName;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }
