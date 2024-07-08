@@ -46,7 +46,8 @@ class TraineeController extends AbstractController
 
         return $this->render('trainee/new.html.twig', [
             'formAddTrainee' => $form,
-            'edit' => $trainee->getId()
+            'edit' => $trainee->getId(),
+            'trainee' => $trainee
         ]);
     }
 

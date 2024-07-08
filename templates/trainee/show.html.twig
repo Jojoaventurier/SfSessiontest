@@ -21,7 +21,7 @@
                 <h2>Sessions prévues</h2>
             </div>
         </div>
-        <a class='deleteBtn'>Supprimer la fiche</a>
+        <a href="{{ path('delete_trainee', {'id': trainee.id}) }}" class='deleteBtn'>Supprimer la fiche</a>
     </div>
 
 {% endblock %}

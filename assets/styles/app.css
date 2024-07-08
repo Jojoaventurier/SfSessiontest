@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     background-color: white;
 }
@@ -8,6 +12,10 @@ nav {
     justify-content: center;
     align-items: center;
     background-color: #0025A8;
+}
+
+h1 {
+    margin: 0;
 }
 
 li {
@@ -39,8 +47,8 @@ nav a{
 
 #traineeBox {
     background-color: #1538B2;
-    padding: 20px;
-    margin: 20px 0;
+    padding: 30px;
+    margin: 30px 0;
 }
 
 #traineeBox p,h1,h2 {

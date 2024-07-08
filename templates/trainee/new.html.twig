@@ -8,7 +8,7 @@
     <div class='centered'>
         <div id="traineeBox">
             {% if edit %}
-                <h1>Modifier le/la stagiaire</h1>
+                <h1>Modifier la fiche</h1>
             {% else %}
                 <h1>Ajouter un/une stagiaire</h1>
             {% endif %}
@@ -31,9 +31,9 @@
     </div>
 
     {% if edit %}
-        <a class='deleteBtn'>Supprimer la fiche</a>
+        <a href="{{ path('delete_trainee', {'id': trainee.id}) }}" class='deleteBtn'>Supprimer la fiche</a>
     {% endif %}
-    
+
 </div>
 
    
