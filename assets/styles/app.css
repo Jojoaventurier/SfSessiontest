@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -92,6 +94,14 @@ td:hover a {
 
 #traineeBox p, #traineeBox h1, #traineeBox h2 {
     color: white;
+}
+
+#traineeBox p {
+    margin: 25px 0;
+}
+
+#traineeBox h2 {
+    margin: 15px 0;
 }
 
 .editBtn {

@@ -9,6 +9,7 @@
             <div id="traineeBox">
                 <h1>Fiche Stagiaire</h1>
                 <h2>{{ trainee }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
+                
                     <p>
                         Sexe : {{ trainee.gender }}<br>
                         Date de naissance : {{ trainee.birthDateFr }} ({{ trainee.age }} ans)<br>
@@ -16,6 +17,7 @@
                         Téléphone : {{ trainee.phoneNumber}}<br>
                         Ville : {{ trainee. city }}<br>
                     </p>
+
                     <a class='editBtn' href="{{ path('edit_trainee', {'id': trainee.id}) }}">MODIFIER</a>
 
                 <h2>Sessions prévues</h2>
