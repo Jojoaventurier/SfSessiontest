@@ -16,6 +16,14 @@ class Program
     #[ORM\Column(nullable: true)]
     private ?int $numberOfDays = null;
 
+    #[ORM\ManyToOne(inversedBy: 'programs')]
+    private ?Session $session = null;
+
+    #[ORM\ManyToOne(inversedBy: 'programs')]
+    private ?Unit $unit = null;
+
+ 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -32,4 +40,30 @@ class Program
 
         return $this;
     }
+
+    public function getSession(): ?Session
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Session $session): static
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    public function getUnit(): ?Unit
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(?Unit $unit): static
+    {
+        $this->unit = $unit;
+
+        return $this;
+    }
+
+ 
 }
