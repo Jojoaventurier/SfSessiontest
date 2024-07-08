@@ -45,6 +45,7 @@ nav a{
 
 .btnDiv {
     background-color: rgb(21,56,178, 0.6);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .btn {
     color: white;
@@ -63,12 +64,21 @@ table {
 td {
     border: solid 1px grey;
     padding: 20px 0;
+    opacity: 0.9;
 }
 
-
+td:hover {
+    background-color: rgb(21,56,178, 0.6);
+    opacity: 1;
+}
 
 td a {
     text-decoration: none;
+    padding: 20px 80px;
+    color: black;
+}
+td:hover a {
+    color: white;
 }
 
 /*================================PAGE STAGIAIRE====================================== */
@@ -98,4 +108,13 @@ td a {
     /* margin: 10px; */
     height: 10px;
     width: fit-content;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.centree {
+
+}
+
+#grosseboite {
+
 }
