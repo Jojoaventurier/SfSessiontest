@@ -41,8 +41,23 @@ nav a{
     justify-content: center;
 }
 
+/*==================================LISTE STAGIAIRES=================================== */
+
+.btnDiv {
+    background-color: #0025A8;
+}
+.btn {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
 table {
     width: 100%;
+    text-align: center;
 }
 
 
@@ -55,7 +70,7 @@ table {
     margin: 30px 0;
 }
 
-#traineeBox p,h1,h2 {
+#traineeBox p, #traineeBox h1, #traineeBox h2 {
     color: white;
 }
 
