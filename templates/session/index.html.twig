@@ -6,7 +6,9 @@
     <h1>Liste des sessions</h1>
 
     {% for session in sessions %}
-        {{ session }}<br>
+        {{ session }} démarre le {{ session.startDate | date("m/d/Y") }} et finit le {{ session.endDate | date("m/d/Y") }} Nombre de places total : {{ session.totalNumber }} 
+    
+        <br>
     {% endfor %}
 
 {% endblock %}

@@ -21,6 +21,11 @@
                     <a class='editBtn' href="{{ path('edit_trainee', {'id': trainee.id}) }}">MODIFIER</a>
 
                 <h2>Sessions prévues</h2>
+
+                {% for session in sessions %}
+                    {{ session }}<br>
+                {% endfor %}
+                
             </div>
         </div>
         <a href="{{ path('delete_trainee', {'id': trainee.id}) }}" class='deleteBtn'>Supprimer la fiche</a>
