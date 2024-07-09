@@ -31,11 +31,7 @@ class Session
     #[ORM\ManyToOne(inversedBy: 'sessions')]
     private ?Training $training = null;
 
-    /**
-     * @var Collection<int, Trainee>
-     */
-    #[ORM\ManyToMany(targetEntity: Trainee::class, inversedBy: 'sessions')]
-    private Collection $trainee;
+
 
     /**
      * @var Collection<int, Program>
@@ -117,29 +113,7 @@ class Session
         return $this;
     }
 
-    /**
-     * @return Collection<int, Trainee>
-     */
-    public function getTrainee(): Collection
-    {
-        return $this->trainee;
-    }
-
-    public function addTrainee(Trainee $trainee): static
-    {
-        if (!$this->trainee->contains($trainee)) {
-            $this->trainee->add($trainee);
-        }
-
-        return $this;
-    }
-
-    public function removeTrainee(Trainee $trainee): static
-    {
-        $this->trainee->removeElement($trainee);
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection<int, Program>
