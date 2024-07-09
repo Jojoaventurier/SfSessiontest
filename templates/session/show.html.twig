@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper">
+        <div class='centered'>
+            <div id="traineeBox">
+                <h1>Détail d'une session</h1>
+                <h2>{{ session }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
+                
+                    <p>
+                       
+                    </p>
+
+                    {# <a class='editBtn' href="{{ path('edit_session', {'id': session.id}) }}">MODIFIER</a> #}
+                    {# liste des inscrits #}
+                
+            </div>
+        </div>
+        {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
+    </div>
+
+{% endblock %}
+
+
