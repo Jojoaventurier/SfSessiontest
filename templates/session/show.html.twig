@@ -13,8 +13,8 @@
                     <b>Date de démarrage :</b> {{ session.startDate | date('d.m.Y') }}<br>
                     <b>Date de fin :</b> {{ session.startDate | date('d.m.Y') }}<br>
                     <b>Nombre de places total :</b> {{ session.totalNumber  }}<br>
-                    <b>Nombre de places réservées :</b> <br>
-                    <b>Nombre de places restantes :</b> <br>
+                    <b>Nombre de places réservées :</b> <br>  <!--TODO:  ajouter fonction totalBooked-->
+                    <b>Nombre de places restantes :</b> <br> <!--TODO: ajouter fonction totalLeft-->
                 </p>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     {% endfor %}
                 </table>
                 <div class="btnDiv">
-                    <a class="btn" href="">Inscrire un stagiaire</a><!--lien pour ajouter un stagiaire à la BDD-->
+                    <a class="btn" href="">Inscrire un stagiaire</a><!--TODO: faire le lien avec la fonction addTrainee de l'entité Session-->
                 </div>
             </div>
         {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
