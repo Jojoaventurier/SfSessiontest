@@ -41,17 +41,4 @@ class SessionRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-           /**
-        * @return Session[] Returns an array of Session objects
-        */
-       public function findByTrainee($value): array
-       {
-           return $this->createQueryBuilder('trainee')
-               ->andWhere('trainee.id = :val')
-               ->setParameter('val', $value)
-               ->orderBy('trainee.id', 'ASC')
-               ->getQuery()
-               ->getResult()
-           ;
-       }
 }

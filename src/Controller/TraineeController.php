@@ -56,10 +56,8 @@ class TraineeController extends AbstractController
     #[Route('/trainee/{id}', name: 'show_trainee')]
     public function show(Trainee $trainee, SessionRepository $sessionRepository): Response
     {
-        // $sessions = $sessionRepository->findByTrainee($trainee);
         return $this->render('trainee/show.html.twig', [
             'trainee' => $trainee,
-            // 'sessions' => $sessions
         ]);
     }
 
