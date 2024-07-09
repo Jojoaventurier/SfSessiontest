@@ -4,22 +4,37 @@
 
 {% block body %}
 
-    <div class="wrapper">
+    <div class="wrapperRow">
         <div class='centered'>
             <div id="traineeBox">
                 <h1>Détail d'une session</h1>
                 <h2>{{ session }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
-                
-                <table>
-                    
-                </table>    
-
-
-                    {# <a class='editBtn' href="{{ path('edit_session', {'id': session.id}) }}">MODIFIER</a> #}
-                    {# liste des inscrits #}
-                
+                <p>
+                    <b>Date de démarrage :</b> {{ session.startDate | date('d.m.Y') }}<br>
+                    <b>Date de fin :</b> {{ session.startDate | date('d.m.Y') }}<br>
+                    <b>Nombre de places total :</b> {{ session.totalNumber  }}<br>
+                    <b>Nombre de places réservées :</b> <br>
+                    <b>Nombre de places restantes :</b> <br>
+                </p>
             </div>
         </div>
+        
+        <div class="centered">
+            <div class="table">
+                <table>
+                    <tr>
+                        <th><h2>Liste des inscrits</h2></th>
+                    </tr>
+                    {% for trainee in session.trainees %}
+                        <tr>
+                        <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div class="btnDiv">
+                    <a class="btn" href="">Inscrire un stagiaire</a><!--lien pour ajouter un stagiaire à la BDD-->
+                </div>
+            </div>
         {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
     </div>
 

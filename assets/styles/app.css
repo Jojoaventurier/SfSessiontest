@@ -38,6 +38,11 @@ nav a{
     flex-direction: column;
 }
 
+/* .wrapperRow {
+    display: flex;
+    justify-content: center;
+} */
+
 .centered {
     display: flex;
     justify-content: center;
@@ -78,7 +83,7 @@ table {
 
 td {
     border: solid 1px grey;
-    padding: 20px 0;
+    padding: 10px 0;
     opacity: 0.9;
 }
 
