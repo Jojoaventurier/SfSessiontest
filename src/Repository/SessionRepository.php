@@ -44,12 +44,12 @@ class SessionRepository extends ServiceEntityRepository
            /**
         * @return Session[] Returns an array of Session objects
         */
-       public function findByExampleField($value): array
+       public function findByTrainee($value): array
        {
-           return $this->createQueryBuilder('s')
-               ->andWhere('s.exampleField = :val')
+           return $this->createQueryBuilder('trainee')
+               ->andWhere('trainee.id = :val')
                ->setParameter('val', $value)
-               ->orderBy('s.id', 'ASC')
+               ->orderBy('trainee.id', 'ASC')
                ->getQuery()
                ->getResult()
            ;

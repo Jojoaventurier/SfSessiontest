@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Trainee;
 use App\Form\TraineeType;
+use App\Repository\SessionRepository;
 use App\Repository\TraineeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,10 +54,12 @@ class TraineeController extends AbstractController
 
 
     #[Route('/trainee/{id}', name: 'show_trainee')]
-    public function show(Trainee $trainee): Response
+    public function show(Trainee $trainee, SessionRepository $sessionRepository): Response
     {
+        $sessions = $sessionRepository->findByTrainee($trainee);
         return $this->render('trainee/show.html.twig', [
             'trainee' => $trainee,
+            'sessions' => $sessions
         ]);
     }
 
