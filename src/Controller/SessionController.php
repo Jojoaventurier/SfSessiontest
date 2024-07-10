@@ -28,7 +28,8 @@ class SessionController extends AbstractController
         ]);
     }
 
-    public function request3() {
-        
+    public function request3(Session $session) {
+        $request = $session->requestNull();
+        return $request;
     }
 }
