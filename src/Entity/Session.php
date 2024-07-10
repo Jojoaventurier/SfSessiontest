@@ -190,9 +190,10 @@ class Session
         return $this->sessionName;
     }
 
-    public function request(SessionRepository $sessionRepository) {
-        $request = $sessionRepository->requestNull();
-        return $request;
-    }
+    // public function request(SessionRepository $sessionRepository) {
+    //     $sessionRepository;
+    //     $request = $sessionRepository->requestNull();
+    //     return $request;
+    // }
 
 }

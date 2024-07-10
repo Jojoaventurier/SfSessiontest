@@ -56,15 +56,29 @@ class SessionRepository extends ServiceEntityRepository
              ->getResult();
        }
 
-       public function requestNull() {
-        $q = Doctrine_query::create()
-             ->select('trainee.firstName')
-             ->from('trainee')
-             ->where('trainee.id NOT IN (
-                                SELECT trainee.id
-                                FROM
-             )');
-            return $q->getSqlquery();
+    //    public function requestNull() {
+    //     $q = Doctrine_query::create()
+    //          ->select('trainee.firstName')
+    //          ->from('trainee')
+    //          ->where('trainee.id NOT IN (
+    //                             SELECT trainee.id
+    //                             FROM
+    //          )');
+    //         return $q->getSqlquery();
+    //    }
+
+
+    // récupérer toutes les sessions qui contiennent la lettre 'a'
+           public function findByExampleField($value): array
+       {
+           return $this->createQueryBuilder('s')
+               ->andWhere('s.exampleField = :val')
+               ->setParameter('val', $value)
+               ->orderBy('s.id', 'ASC')
+               ->setMaxResults(10)
+               ->getQuery()
+               ->getResult()
+           ;
        }
 }
 
