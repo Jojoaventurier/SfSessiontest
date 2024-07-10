@@ -19,17 +19,15 @@ class SessionRepository extends ServiceEntityRepository
     //    /**
     //     * @return Session[] Returns an array of Session objects
     //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('s')
-    //            ->andWhere('s.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('s.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+       public function findByExampleField(): array
+       {
+           return $this->createQueryBuilder('s')
+               ->andWhere('s.sessionName LIKE :val')
+               ->setParameter('val', '%a%')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
 
     //    public function findOneBySomeField($value): ?Session
     //    {
@@ -43,7 +41,7 @@ class SessionRepository extends ServiceEntityRepository
        
        public function request() {
 
-        $qb  = $this->createQueryBuilder();
+        $qb  = $this->createQueryBuilder('s');
         $sub = $qb;
 
         $sub = $qb->select('trainee.id')
@@ -68,17 +66,5 @@ class SessionRepository extends ServiceEntityRepository
     //    }
 
 
-    // récupérer toutes les sessions qui contiennent la lettre 'a'
-           public function findByExampleField($value): array
-       {
-           return $this->createQueryBuilder('s')
-               ->andWhere('s.exampleField = :val')
-               ->setParameter('val', $value)
-               ->orderBy('s.id', 'ASC')
-               ->setMaxResults(10)
-               ->getQuery()
-               ->getResult()
-           ;
-       }
 }
 
