@@ -43,22 +43,33 @@ class SessionRepository extends ServiceEntityRepository
     //   on va selectionner tous les stagiaires d'une session dont l'id est passée en parametres
     //   on selectionne tous les stagiaires qui ne sont pas dans le résultat précédent
       
-       public function findTraineesBySession($session) {
+       public function getTraineesNotRegistered($id) {
 
-        $qb  = $this->createQueryBuilder('s');
-        $sub = $qb;
+        $em = $this->getEntityManager();
+        $sub  = $this->createQueryBuilder('z');
 
-        $sub = $qb->select('trainee.id')
-          ->from('session_trainee')
-          ->andWhere('s.id = :val')
-          ->setParameter('val', $session);
+        $qb = $sub;
+        // sélectionner tous les stagiaires d'une session dont l'id est passée en paramètre
+        $qb->select('t')
+          ->from('App\Entity\Trainee', 't')
+          ->leftJoin('t.sessions', 'se')
+          ->andWhere('se.id = :id');
 
 
-        $linked = $qb->select('trainee.id')
-             ->from('trainee')
-             ->where($qb->expr()->notIn('session_trainee',  $sub->getDQL()))
-             ->getQuery()
-             ->getResult();
+        $sub = $em->createQueryBuilder('w');
+        // sélectionner tous les stagiaires qui ne SONT PAS (NOT IN) dans le résultat précédent
+        // on obtient donc les stagiaires non inscrits pour une session définie
+        $sub->select('st')
+             ->from('App\Entity\Trainee', 'st')
+             ->where($sub->expr()->notIn('st.id',  $qb->getDQL()))
+             //requête paramétrée
+             ->setParameter('id', $id);
+             // trier la liste des stagiaires sur le nom de famille
+            //  ->orderBy('st.nom');
+
+        // renvoyer le résultat
+        $query = $sub->getQuery();
+        return $query->getResult();
        }
 
     //    public function requestNull() {

@@ -59,13 +59,14 @@ class SessionController extends AbstractController
         ]);
     }
 
-    #[Route('/session5/{id}', name: 'show_session5')]
-    public function session5(SessionRepository $sessionRepository): Response
+    #[Route('/session5/{id}', name: 'show_session')]
+    public function session5(Session $session, SessionRepository $sessionRepository): Response
     {   
-        
-        $trainees = $sessionRepository->findTraineesBySession($session);
-        return $this->render('session/session5.html.twig', [
-            'sessions' => $sessions,
+
+        $trainees = $sessionRepository->getTraineesNotRegistered($session);
+        return $this->render('session/show.html.twig', [
+            'session' => $session,
+            'trainees' => $trainees
         ]);
     }
     
