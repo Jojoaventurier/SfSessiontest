@@ -26,5 +26,9 @@ class SessionController extends AbstractController
         return $this->render('session/show.html.twig', [
             'session' => $session,
         ]);
-}
+    }
+
+    public function request3() {
+        
+    }
 }

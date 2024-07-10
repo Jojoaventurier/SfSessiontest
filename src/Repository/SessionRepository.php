@@ -40,19 +40,31 @@ class SessionRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+       
+       public function request() {
 
-       public function findAllNull(): array
-       {
-           return $this->createQueryBuilder('trainee')
-            
-               ->rightJoin('trainee.session_trainee', 'st')
-               ->andWhere('st.session_id = :val')
-               ->setParameter('val', $value)
-               ->orderBy('s.id', 'ASC')
-               ->getQuery()
-               ->getResult()
-           ;
+        $qb  = $this->createQueryBuilder();
+        $sub = $qb;
+
+        $sub = $qb->select('trainee.id')
+          ->from('trainee', 'session_trainee');
+
+        $linked = $qb->select('trainee.id')
+             ->from('trainee')
+             ->where($qb->expr()->notIn('rl.request_id',  $sub->getDQL()))
+             ->getQuery()
+             ->getResult();
        }
 
+    //    public function requestNull() {
+    //     $q = Doctrine_query::create()
+    //          ->select('trainee.firstName')
+    //          ->from('trainee')
+    //          ->where('trainee.id NOT IN (
+    //                             SELECT trainee.id
+    //                             FROM
+    //          )');
+    //         return $q->getSqlquery();
+    //    }
 }
 
