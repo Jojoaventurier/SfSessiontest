@@ -14,7 +14,15 @@
             {% endif %}
 
 
-            {{ form(formAddSession) }}
+            {{ form_start(formAddSession) }}
+                
+                        {{ form_row(formAddSession.sessionName) }}
+                        {{ form_row(formAddSession.startDate) }}
+                        {{ form_row(formAddSession.endDate) }}
+                        {{ form_row(formAddSession.training) }}
+                      
+                
+            {{ form_end(formAddSession) }}
 
 
 

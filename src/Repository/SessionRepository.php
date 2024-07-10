@@ -49,11 +49,13 @@ class SessionRepository extends ServiceEntityRepository
         $sub = $qb;
 
         $sub = $qb->select('trainee.id')
-          ->from('trainee', 'session_trainee');
+          ->from('trainee', 'session_trainee')
+          ->andWhere('s.id = :val')
+          ->setParameter('val', $session);
 
         $linked = $qb->select('trainee.id')
              ->from('trainee')
-             ->where($qb->expr()->notIn('rl.request_id',  $sub->getDQL()))
+             ->where($qb->expr()->notIn('',  $sub->getDQL()))
              ->getQuery()
              ->getResult();
        }
