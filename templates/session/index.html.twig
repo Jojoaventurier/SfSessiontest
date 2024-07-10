@@ -6,13 +6,12 @@
     <h1>Liste des sessions</h1>
 
     {% for session in sessions %}
-        <a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a> démarre le {{ session.startDate | date("m/d/Y") }} et finit le {{ session.endDate | date("m/d/Y") }} Nombre de places total : {{ session.totalNumber }} 
+        <a href="{{ path('show_session5', {'id': session.id}) }}">{{ session }}</a> démarre le {{ session.startDate | date("m/d/Y") }} et finit le {{ session.endDate | date("m/d/Y") }} Nombre de places total : {{ session.totalNumber }} 
     
         <br>
     {% endfor %}
 
     <p>
-        <a href="{{ path('app_session5') }}">Sessions qui contiennent la lettre "a"</a>
 
 
         <div class="btnDiv">
