@@ -19,15 +19,16 @@ class SessionRepository extends ServiceEntityRepository
     //    /**
     //     * @return Session[] Returns an array of Session objects
     //     */
-       public function findByExampleField(): array
-       {
-           return $this->createQueryBuilder('s')
-               ->andWhere('s.sessionName LIKE :val')
-               ->setParameter('val', '%a%')
-               ->getQuery()
-               ->getResult()
-           ;
-       }
+    //    public function findByExampleField(): array
+    //    {
+    //        return $this->createQueryBuilder('s')
+    //            ->andWhere('s.sessionName LIKE :val')
+    //            ->setParameter('val', '%Ord%')
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
 
     //    public function findOneBySomeField($value): ?Session
     //    {
@@ -38,8 +39,11 @@ class SessionRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
-       
-       public function request() {
+    //   récupérer les stagiaires non inscrit demandera en id  l'id de la session
+    //   on va selectionner tous les stagiaires d'une session dont l'id est passée en parametres
+    //   on selectionne tous les stagiaires qui ne sont pas dans le résultat précédent
+      
+       public function findTraineesBySession($session) {
 
         $qb  = $this->createQueryBuilder('s');
         $sub = $qb;

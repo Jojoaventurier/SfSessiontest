@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un stagiaire{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+    <div class='centered'>
+        <div id="traineeBox">
+            {% if edit %}
+                <h1>Modifier la session</h1>
+            {% else %}
+                <h1>Ajouter une session</h1>
+            {% endif %}
+
+
+            {{ form(formAddSession) }}
+
+
+
+        </div>
+    </div>
+
+    {% if edit %}
+        {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la fiche</a> #}
+    {% endif %}
+
+</div>
+
+   
+
+{% endblock %}
