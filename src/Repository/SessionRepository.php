@@ -72,17 +72,5 @@ class SessionRepository extends ServiceEntityRepository
         return $query->getResult();
        }
 
-    //    public function requestNull() {
-    //     $q = Doctrine_query::create()
-    //          ->select('trainee.firstName')
-    //          ->from('trainee')
-    //          ->where('trainee.id NOT IN (
-    //                             SELECT trainee.id
-    //                             FROM
-    //          )');
-    //         return $q->getSqlquery();
-    //    }
-
-
 }
 

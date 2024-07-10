@@ -50,15 +50,6 @@ class SessionController extends AbstractController
         ]);
     }
 
-    // #[Route('/session/{id}', name: 'show_session')]
-    // public function show(Session $session): Response
-    // {
-
-    //     return $this->render('session/show.html.twig', [
-    //         'session' => $session,
-    //     ]);
-    // }
-
     #[Route('/session/{id}', name: 'show_session')]
     public function show(Session $session, SessionRepository $sessionRepository): Response
     {   
@@ -70,8 +61,10 @@ class SessionController extends AbstractController
         ]);
     }
 
-    public function register(Session $session) {
-        
+    #[Route('/session/{id}/add', name: 'add_trainee')]
+    public function register(Session $session, Trainee $trainee) {
+
+        $session->addTrainee($trainee);
 
     }
     

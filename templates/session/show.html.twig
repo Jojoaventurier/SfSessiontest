@@ -35,20 +35,21 @@
                             <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
                         </tr>
                     {% endfor %}
-
-                    
-
                 </table>
-                <div class="btnDiv">
-                    <a class="btn" href="">Inscrire un stagiaire</a>
-                </div>
+                         
                 <h2>Liste des stagiaires non inscrits</h2>
 
-                {% for trainee in trainees %}
-                        <tr>
-                            <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
-                        </tr>
-                {% endfor %}
+                <table>
+                    {% for trainee in trainees %}
+                            <tr>
+                                <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
+
+                                        <a class="" href="{{ path('add_trainee', {'id': session.id}) }}">Inscrire un stagiaire</a>
+ 
+                                </td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                            </tr>
+                    {% endfor %}
+                </table>
             </div>
         {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
     </div>
