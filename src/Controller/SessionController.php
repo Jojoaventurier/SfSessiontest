@@ -50,17 +50,17 @@ class SessionController extends AbstractController
         ]);
     }
 
+    // #[Route('/session/{id}', name: 'show_session')]
+    // public function show(Session $session): Response
+    // {
+
+    //     return $this->render('session/show.html.twig', [
+    //         'session' => $session,
+    //     ]);
+    // }
+
     #[Route('/session/{id}', name: 'show_session')]
-    public function show(Session $session): Response
-    {
-
-        return $this->render('session/show.html.twig', [
-            'session' => $session,
-        ]);
-    }
-
-    #[Route('/session5/{id}', name: 'show_session')]
-    public function session5(Session $session, SessionRepository $sessionRepository): Response
+    public function show(Session $session, SessionRepository $sessionRepository): Response
     {   
 
         $trainees = $sessionRepository->getTraineesNotRegistered($session);
@@ -68,6 +68,11 @@ class SessionController extends AbstractController
             'session' => $session,
             'trainees' => $trainees
         ]);
+    }
+
+    public function register(Session $session) {
+        
+
     }
     
 }
