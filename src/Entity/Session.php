@@ -175,6 +175,17 @@ class Session
         return $this;
     }
 
+
+    public function numberBooked() {
+        $numberBooked = count($this->trainees);
+        return $numberBooked;
+    }
+
+    public function numberLeft() {
+        $numberLeft = $this->totalNumber - count($this->trainees);
+        return $numberLeft;
+    }
+
     public function __toString() {
         return $this->sessionName;
     }

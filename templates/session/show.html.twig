@@ -13,9 +13,11 @@
                     <b>Date de démarrage :</b> {{ session.startDate | date('d.m.Y') }}<br>
                     <b>Date de fin :</b> {{ session.startDate | date('d.m.Y') }}<br>
                     <b>Nombre de places total :</b> {{ session.totalNumber  }}<br>
-                    <b>Nombre de places réservées :</b> <br>  <!--TODO:  ajouter fonction totalBooked-->
-                    <b>Nombre de places restantes :</b> <br> <!--TODO: ajouter fonction totalLeft-->
+                    <b>Nombre de places réservées :</b> {{ session.numberBooked }} <br>  
+                    <b>Nombre de places restantes :</b> {{ session.numberLeft }} <br>
+                    
                 </p>
+                {# <a class='editBtn' href="{{ path('edit_session', {'id': session.id}) }}">MODIFIER</a> #}
             </div>
         </div>
         
@@ -29,14 +31,13 @@
                     {# {% if trainee == null %}
                         <p>Il n'y a pas encore de stagiaires inscrits.</p>
                     {% endif %} #}
-
                         <tr>
                         <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
                         </tr>
                     {% endfor %}
                 </table>
                 <div class="btnDiv">
-                    <a class="btn" href="">Inscrire un stagiaire</a><!--TODO: faire le lien avec la fonction addTrainee de l'entité Session-->
+                    <a class="btn" href="">Inscrire un stagiaire</a>
                 </div>
             </div>
         {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}

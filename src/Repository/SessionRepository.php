@@ -41,4 +41,18 @@ class SessionRepository extends ServiceEntityRepository
     //        ;
     //    }
 
+       public function findAllNull(): array
+       {
+           return $this->createQueryBuilder('trainee')
+            
+               ->rightJoin('trainee.session_trainee', 'st')
+               ->andWhere('st.session_id = :val')
+               ->setParameter('val', $value)
+               ->orderBy('s.id', 'ASC')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
+
 }
+
