@@ -50,6 +50,8 @@
                             </tr>
                     {% endfor %}
                 </table>
+
+                <a href="{{ path('app_program', {'id': session.id}) }}">MODIFIER LE PROGRAMME</a>
             </div>
         {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
     </div>

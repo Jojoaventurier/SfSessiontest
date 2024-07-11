@@ -54,7 +54,6 @@ class SessionController extends AbstractController
     #[Route('/session/{id}', name: 'show_session')]
     public function show(Session $session, SessionRepository $sessionRepository): Response
     {   
-
         $trainees = $sessionRepository->getTraineesNotRegistered($session);
         return $this->render('session/show.html.twig', [
             'session' => $session,
