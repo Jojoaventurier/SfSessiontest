@@ -13,12 +13,11 @@ class ProgramController extends AbstractController
     #[Route('/program/session/{id}', name: 'app_program')]
     public function index(Session $session, ProgramRepository $programRepository): Response
     {   
-        $session_id = $session->getId();
-        
-        $program = $programRepository->findBy($session_id);
+
+        $units = $programRepository->findBySession($session);
 
         return $this->render('program/index.html.twig', [
-            'program' => $program,
+            'units' => $units,
         ]);
     }
 }

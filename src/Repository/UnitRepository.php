@@ -40,4 +40,14 @@ class UnitRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function findUnitsBySession($session): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.session = :val')
+            ->setParameter('val', $session)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

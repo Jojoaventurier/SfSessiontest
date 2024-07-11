@@ -40,4 +40,15 @@ class ProgramRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+           public function findBySession($session): array
+       {
+           return $this->createQueryBuilder('p')
+               ->andWhere('p.session = :val')
+               ->setParameter('val', $session)
+               ->getQuery()
+               ->getResult()
+           ;
+       }
+
 }
