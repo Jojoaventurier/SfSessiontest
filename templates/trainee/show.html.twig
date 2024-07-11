@@ -23,7 +23,7 @@
                 <h2>Sessions prévues</h2>
 
                 {% for session in trainee.sessions %}
-                    {{ session }}<br>
+                    <a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a><br>
                 {% endfor %}
                 
             </div>
