@@ -4,10 +4,31 @@
 
 {% block body %}
 
-<h1>Programme de la session :</h1>
 
-{% for program in programs %}
-    {{ program.unit }}
-{% endfor %}
+
+<div class="wrapper">
+
+    <div class="centered wrapper">
+        <h1>Programme de la session :</h1>
+
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Modules</th><th>Durée</th>
+                </tr>
+
+                {% for program in programs %}
+                <tr>
+                    <td>{{ program.unit }}</td><td>{{ program.numberOfDays }} jours</td> <br>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+    </div>
+
+    <h2>Modules non présents dans le programme</h2>
+</div>
+
 
 {% endblock %}

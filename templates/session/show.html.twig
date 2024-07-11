@@ -44,7 +44,7 @@
                             <tr>
                                 <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
 
-                                        <a class="" href="{{ path('register_trainee', {'id': session.id, 'trainee': trainee }) }}">Inscrire</a>
+                                    <a class="" href="{{ path('register_trainee', {'id': session.id, 'trainee': trainee }) }}">Inscrire</a>
  
                                 </td> <!--lien vers l'affichage du détail d'un stagiaire-->
                             </tr>
@@ -57,10 +57,10 @@
     <div class="centered">
         <div class="table">
             <table>
-                <tr><th>Modules du programme</th></tr>
+                <tr><th>Modules du programme</th><th>Durée</th></tr>
                 {% for program in programs %}
                     <tr>
-                        <td>{{ program.unit }}</td>
+                        <td>{{ program.unit }}</td><td> {{ program.numberOfDays}} jours</td>
                     </tr>
                 {% endfor %}
             </table>
