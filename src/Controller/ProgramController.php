@@ -14,10 +14,10 @@ class ProgramController extends AbstractController
     public function index(Session $session, ProgramRepository $programRepository): Response
     {   
 
-        $units = $programRepository->findBySession($session);
+        $programs = $programRepository->findBySession($session);
 
         return $this->render('program/index.html.twig', [
-            'units' => $units,
+            'programs' => $programs,
         ]);
     }
 }

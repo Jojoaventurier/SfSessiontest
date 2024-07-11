@@ -6,8 +6,8 @@
 
 <h1>Programme de la session :</h1>
 
-{% for unit in program %}
-    {{ unit }}
+{% for program in programs %}
+    {{ program.unit }}
 {% endfor %}
-<h2>{{ program.session }}</h2>
+
 {% endblock %}
