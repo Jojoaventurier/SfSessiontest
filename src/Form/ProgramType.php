@@ -17,15 +17,15 @@ class ProgramType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('numberOfDays', IntegerType::class)
             ->add('session', EntityType::class, [
                 'class' => Session::class,
-                'choice_label' => 'id',
+                'choice_label' => 'sessionName',
             ])
             ->add('unit', EntityType::class, [
                 'class' => Unit::class,
-                'choice_label' => 'id',
+                'choice_label' => 'unitName',
             ])
+            ->add('numberOfDays', IntegerType::class)
             ->add('valider', SubmitType::class)
         ;
     }
