@@ -44,8 +44,7 @@
                             <tr>
                                 <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
 
-                                    <a class="" href="{{ path('register_trainee', {'id': session.id, 'trainee': trainee }) }}">Inscrire</a>
- 
+                                    <a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a>
                                 </td> <!--lien vers l'affichage du détail d'un stagiaire-->
                             </tr>
                     {% endfor %}

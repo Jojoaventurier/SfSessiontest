@@ -64,12 +64,12 @@ class SessionController extends AbstractController
         ]);
     }
 
-    #[Route('/session/{id}/add/{trainee}', name: 'register_trainee')]
+    #[Route('/session/{session}/add/{trainee}', name: 'register_trainee')]
     public function register(Session $session, Trainee $trainee) {
 
          $session->addTrainee($trainee);
        
-         return $this->redirectToroute('app_session');
+         return $this->redirectToRoute('app_session');
 
     }
     
