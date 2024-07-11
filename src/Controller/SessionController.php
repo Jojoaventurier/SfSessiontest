@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Session;
+use App\Entity\Trainee;
 use App\Form\SessionType;
 use App\Repository\SessionRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -61,10 +62,12 @@ class SessionController extends AbstractController
         ]);
     }
 
-    #[Route('/session/{id}/add', name: 'add_trainee')]
+    #[Route('/session/{id}/add/{trainee}', name: 'add_trainee')]
     public function register(Session $session, Trainee $trainee) {
 
-        $session->addTrainee($trainee);
+         $session->addTrainee($trainee);
+       
+         return $this->redirectToroute('app_session');
 
     }
     

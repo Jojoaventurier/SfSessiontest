@@ -3,20 +3,23 @@
 {% block title %}Liste des sessions{% endblock %}
 
 {% block body %}
-    <h1>Liste des sessions</h1>
+    <div class="wrapper">
+        
+            <h1>Liste des sessions</h1>
 
-    {% for session in sessions %}
-        <a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a> démarre le {{ session.startDate | date("m/d/Y") }} et finit le {{ session.endDate | date("m/d/Y") }} Nombre de places total : {{ session.totalNumber }} 
-    
-        <br>
-    {% endfor %}
+            {% for session in sessions %}
+                <a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a> démarre le {{ session.startDate | date("m/d/Y") }} et finit le {{ session.endDate | date("m/d/Y") }} Nombre de places total : {{ session.totalNumber }} 
+            
+                <br>
+            {% endfor %}
 
-    <p>
+            <p>
 
 
-        <div class="btnDiv">
-            <a class="btn" href="{{ path('new_session') }}">Ajouter une session</a>
-        </div>
-    </p>
-
+                <div class="btnDiv">
+                    <a class="btn" href="{{ path('new_session') }}">Ajouter une session</a>
+                </div>
+            </p>
+        
+    </div>
 {% endblock %}
