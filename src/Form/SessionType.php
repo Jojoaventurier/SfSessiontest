@@ -29,7 +29,7 @@ class SessionType extends AbstractType
             ])
             ->add('training', EntityType::class, [
                 'class' => Training::class,
-                'choice_label' => 'id',
+                'choice_label' => 'trainingName',
             ])
             ->add('valider', SubmitType::class)
         ;
