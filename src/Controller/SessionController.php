@@ -65,11 +65,15 @@ class SessionController extends AbstractController
     }
 
     #[Route('/session/{session}/add/{trainee}', name: 'register_trainee')]
-    public function register(Session $session, Trainee $trainee) {
+    public function register(Session $session, Trainee $trainee, EntityManagerInterface $entityManager) {
 
          $session->addTrainee($trainee);
          $trainee->addSession($session);
-       
+
+         $entityManager->persist($trainee);
+         $entityManager->persist($session);
+         $entityManager->flush();
+
          return $this->redirectToRoute('app_session');
 
     }
