@@ -68,6 +68,7 @@ class SessionController extends AbstractController
     public function register(Session $session, Trainee $trainee) {
 
          $session->addTrainee($trainee);
+         $trainee->addSession($session);
        
          return $this->redirectToRoute('app_session');
 
