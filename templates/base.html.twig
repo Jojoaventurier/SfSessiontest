@@ -18,7 +18,23 @@
             <li><a href="">PROGRAMMES</a></li>
             <li><a href="">MODULES</a></li>
             <li><a href="{{ path('app_trainee') }}">STAGIAIRES</a></li>
+            {% if app.user %} <!-- si l'utilisateur est connecté -->
+            <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+            <li><a href="">Mon profil</a></li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+            <li><a href="{{ path('app_register') }}">S'enregistrer</a></li>
+        {% endif %}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <li><a href="">Panneau d'administration</a></li>
+        {% endif %}
+
+
+            
         </nav>
+
+        
         
         {% block body %}{% endblock %}
     </body>
