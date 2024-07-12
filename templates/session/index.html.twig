@@ -15,10 +15,11 @@
 
             <p>
 
-
+                {% if is_granted('ROLE_ADMIN')  %}
                 <div class="btnDiv">
                     <a class="btn" href="{{ path('new_session') }}">Ajouter une session</a>
                 </div>
+                {% endif %}
             </p>
         
     </div>

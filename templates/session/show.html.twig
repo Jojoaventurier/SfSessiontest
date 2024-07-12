@@ -15,40 +15,43 @@
                     <b>Nombre de places total :</b> {{ session.totalNumber  }}<br>
                     <b>Nombre de places réservées :</b> {{ session.numberBooked }} <br>  
                     <b>Nombre de places restantes :</b> {{ session.numberLeft }} <br>
-                    
                 </p>
-                <a class='editBtn' href="{{ path('edit_session', {'id': session.id}) }}">MODIFIER</a>
+                {% if is_granted('ROLE_ADMIN') %}    
+                    <a class='editBtn' href="{{ path('edit_session', {'id': session.id}) }}">MODIFIER</a>
+                {% endif %}
             </div>
         </div>
         
         <div class="centered">
+            {% if is_granted('ROLE_ADMIN')  %}
+            
             <div class="table">
-                <table>
-                    <tr>
-                        <th><h3>Liste des inscrits</h3></th>
-                    </tr>
-                    {% for trainee in session.trainees %}
-                    {# {% if trainee == null %}
-                        <p>Il n'y a pas encore de stagiaires inscrits.</p>
-                    {% endif %} #}
+                    <table>
                         <tr>
-                            <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                            <th><h3>Liste des inscrits</h3></th>
                         </tr>
-                    {% endfor %}
-                </table>
-                         
-                <h2>Liste des stagiaires non inscrits</h2>
-
-                <table>
-                    {% for trainee in trainees %}
+                        {% for trainee in session.trainees %}
+                        {# {% if trainee == null %}
+                            <p>Il n'y a pas encore de stagiaires inscrits.</p>
+                        {% endif %} #}
                             <tr>
-                                <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
-
-                                    <a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a>
-                                </td>
+                                <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
                             </tr>
-                    {% endfor %}
-                </table>
+                        {% endfor %}
+                    </table>
+                    <h2>Liste des stagiaires non inscrits</h2>
+
+                    <table>
+                        {% for trainee in trainees %}
+                                <tr>
+                                    <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
+
+                                        <a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a>
+                                    </td>
+                                </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
             </div>
         {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
     </div>
@@ -63,7 +66,10 @@
                     </tr>
                 {% endfor %}
             </table>
-            <a href="{{ path('edit_program', {'id': session.id}) }}">MODIFIER LE PROGRAMME</a>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('edit_program', {'id': session.id}) }}">MODIFIER LE PROGRAMME</a>
+            {% endif %}
         </div>
     </div>
 
