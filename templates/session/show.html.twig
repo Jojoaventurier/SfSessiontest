@@ -20,14 +20,8 @@
                     <a class='editBtn' href="{{ path('edit_session', {'id': session.id}) }}">MODIFIER</a>
                 {% endif %}
             </div>
-        </div>
-        
-        
-        {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
-    </div>
 
-    <div class="centered margin">
-            <div class="table">
+            <div class="table margin wrapper">
                 <table>
                     <tr><th>Modules du programme</th><th>Durée</th></tr>
                     {% for program in programs %}
@@ -38,41 +32,53 @@
                 </table>
 
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('edit_program', {'id': session.id}) }}">MODIFIER LE PROGRAMME</a>
+                <div class="btnDiv btnSize wrapper">
+                    <a class="btn" href="{{ path('edit_program', {'id': session.id}) }}">Ajouter/Supprimer un module</a>
+                </div>
                 {% endif %}
             </div>
-    {# </div>
-    <div class="centered"> #}
-        {% if is_granted('ROLE_ADMIN')  %}
-        
-        <div class="table trainees margin">
-                <table>
-                    <tr>
-                        <th><h3>Liste des inscrits</h3></th>
-                    </tr>
-                    {% for trainee in session.trainees %}
-                    {# {% if trainee == null %}
-                        <p>Il n'y a pas encore de stagiaires inscrits.</p>
-                    {% endif %} #}
-                        <tr>
-                            <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
-                        </tr>
-                    {% endfor %}
-                </table>
-                <h2>Liste des stagiaires non inscrits</h2>
-
-                <table>
-                    {% for trainee in trainees %}
-                            <tr>
-                                <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a>
-
-                                    <a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a>
-                                </td>
-                            </tr>
-                    {% endfor %}
-                </table>
-            {% endif %}
         </div>
+        
+        
+        {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
+    </div>
+
+    <div class="wrapperRow">
+        <div class="wrapper centered margin">
+
+            {% if is_granted('ROLE_ADMIN')  %}
+            <table>
+                <tr>
+                    <th class="fixed"><h3>Liste des inscrits</h3></th><th class="small">Désinscrire</th>
+                </tr>
+                {% for trainee in session.trainees %}
+                {# {% if trainee == null %}
+                    <p>Il n'y a pas encore de stagiaires inscrits.</p>
+                {% endif %} #}
+                    <tr>
+                        <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                        <td><a href="">Désinscrire</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="margin">
+            <table>
+                <tr>
+                    <th><h3>Non inscrits</h3></th><th>Inscrire</th>
+                </tr>
+
+                {% for trainee in trainees %}
+                        <tr>
+                            <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td>
+                            <td><a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a></td>
+                        </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+    
     </div>
 
 {% endblock %}

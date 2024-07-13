@@ -3,39 +3,41 @@
 {% block title %}Liste des sessions{% endblock %}
 
 {% block body %}
-<div class="wrapper eighty">
-        
+<div class="wrapper centered">
+
     <h1>Liste des sessions</h1>
 
-    <table class="center">
-        <tr>
-            <th>Intitulé Session</th>
-            <th>Date de début</th>
-            <th>Date de fin</th>
-            <th>Nb total</th>
-            <th>Nb réservées</th>
-            <th>Nb restantes</th>
-            <th>Détail programme</th>
-        </tr>
-        {% for session in sessions %}
-        <tr>
-            <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
-            <td>{{ session.startDate | date("m/d/Y") }}</td>
-            <td>{{ session.endDate | date("m/d/Y") }}</td>
-            <td>{{ session.totalNumber }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="eighty">  
+        <table class="center">
+            <tr>
+                <th class="fivehundred">Intitulé Session</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Nb total</th>
+                <th>Nb réservées</th>
+                <th>Nb restantes</th>
+                <th>Détail programme</th>
+            </tr>
+            {% for session in sessions %}
+            <tr>
+                <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
+                <td>{{ session.startDate | date("m/d/Y") }}</td>
+                <td>{{ session.endDate | date("m/d/Y") }}</td>
+                <td>{{ session.totalNumber }}</td>
+                <td>{{ session.numberBooked}}</td>
+                <td>{{ session.numberLeft }}</td>
+                <td>Détail</td>
+              
+            </tr>
+            {% endfor %}
+        </table>
 
-                {% if is_granted('ROLE_ADMIN')  %}
-                <div class="btnDiv">
-                    <a class="btn" href="{{ path('new_session') }}">Ajouter une session</a>
-                </div>
-                {% endif %}
-            </p>
-        
+    </div> 
+    {% if is_granted('ROLE_ADMIN')  %}
+    <div class="btnDiv btnSize wrapper">
+        <a class="btn" href="{{ path('new_session') }}">Ajouter une session</a>
+    </div>
+    {% endif %}
+      
 </div>
 {% endblock %}
