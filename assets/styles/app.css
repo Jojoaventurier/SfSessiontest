@@ -91,6 +91,8 @@ h2 {
 table {
     width: 100%;
     text-align: center;
+    border: 2px solid lightgrey;
+    border-collapse: collapse;
 }
 
 th {
@@ -98,13 +100,14 @@ th {
     color: white;
     padding: 15px;
     max-height: 40px;
+    border: 2px solid lightgrey;
 }
 
 td {
-    border: solid 1px grey;
     padding: 10px 0;
     opacity: 0.9;
     max-height: 25px;
+    border: 2px solid lightgrey;
 }
 
 td:hover {
