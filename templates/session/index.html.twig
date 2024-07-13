@@ -11,12 +11,12 @@
         <table class="center">
             <tr>
                 <th class="fivehundred">Intitulé Session</th>
-                <th>Date de début</th>
-                <th>Date de fin</th>
-                <th>Nb total</th>
-                <th>Nb réservées</th>
-                <th>Nb restantes</th>
-                <th>Détail programme</th>
+                <th class="small">Date de début</th>
+                <th class="small">Date de fin</th>
+                <th class="small">Nb total</th>
+                <th class="small">Nb réservées</th>
+                <th class="small">Nb restantes</th>
+                <th class="small">Détail programme</th>
             </tr>
             {% for session in sessions %}
             <tr>
@@ -27,7 +27,6 @@
                 <td>{{ session.numberBooked}}</td>
                 <td>{{ session.numberLeft }}</td>
                 <td>Détail</td>
-              
             </tr>
             {% endfor %}
         </table>
