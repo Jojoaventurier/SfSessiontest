@@ -3,17 +3,32 @@
 {% block title %}Liste des sessions{% endblock %}
 
 {% block body %}
-    <div class="wrapper">
+<div class="wrapper eighty">
         
-            <h1>Liste des sessions</h1>
+    <h1>Liste des sessions</h1>
 
-            {% for session in sessions %}
-                <a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a> démarre le {{ session.startDate | date("m/d/Y") }} et finit le {{ session.endDate | date("m/d/Y") }} Nombre de places total : {{ session.totalNumber }} 
-            
-                <br>
-            {% endfor %}
-
-            <p>
+    <table class="center">
+        <tr>
+            <th>Intitulé Session</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Nb total</th>
+            <th>Nb réservées</th>
+            <th>Nb restantes</th>
+            <th>Détail programme</th>
+        </tr>
+        {% for session in sessions %}
+        <tr>
+            <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
+            <td>{{ session.startDate | date("m/d/Y") }}</td>
+            <td>{{ session.endDate | date("m/d/Y") }}</td>
+            <td>{{ session.totalNumber }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
 
                 {% if is_granted('ROLE_ADMIN')  %}
                 <div class="btnDiv">
@@ -22,5 +37,5 @@
                 {% endif %}
             </p>
         
-    </div>
+</div>
 {% endblock %}
