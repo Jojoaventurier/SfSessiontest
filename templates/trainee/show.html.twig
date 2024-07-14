@@ -11,20 +11,20 @@
                 <h2>{{ trainee }}</h2> <!--affiche le nom et prénom du stagiaire (grâce au __toString() de l'entité)-->
                 
                     <p>
-                        Sexe : {{ trainee.gender }}<br>
-                        Date de naissance : {{ trainee.birthDateFr }} ({{ trainee.age }} ans)<br>
-                        Courriel : {{ trainee.email }}<br>
-                        Téléphone : {{ trainee.phoneNumber}}<br>
-                        Ville : {{ trainee. city }}<br>
+                        <b>Sexe :</b> {{ trainee.gender }}<br>
+                        <b>Date de naissance :</b> {{ trainee.birthDateFr }} ({{ trainee.age }} ans)<br>
+                        <b>Courriel :</b> {{ trainee.email }}<br>
+                        <b>Téléphone :</b> {{ trainee.phoneNumber}}<br>
+                        <b>Ville :</b> {{ trainee. city }}<br>
                     </p>
 
                     <a class='editBtn' href="{{ path('edit_trainee', {'id': trainee.id}) }}">MODIFIER</a>
 
                 <h2>Sessions prévues</h2>
 
-                <div class="white">
+                <div id="sessionList" class="white">
                     {% for session in trainee.sessions %}
-                        <a class="white" href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a> du {{ session.startDate | date('d.m.Y') }} au {{ session.endDate | date('d.m.Y') }}<br>
+                        <li><b><a class="white hoverlink" href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></b> du {{ session.startDate | date('d.m.Y') }} au {{ session.endDate | date('d.m.Y') }}</li>
                     {% endfor %}
                 </div>
                 

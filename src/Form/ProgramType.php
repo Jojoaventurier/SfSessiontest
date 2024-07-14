@@ -20,6 +20,7 @@ class ProgramType extends AbstractType
             ->add('session', EntityType::class, [
                 'class' => Session::class,
                 'choice_label' => 'sessionName',
+                'label' => 'Nom de la session'
             ])
             ->add('unit', EntityType::class, [
                 'class' => Unit::class,

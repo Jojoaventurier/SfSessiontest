@@ -226,3 +226,16 @@ td:hover a {
     opacity: 0.8;
 }
 
+.hoverlink {
+    opacity: 1;
+}
+
+.hoverlink:hover {
+    opacity: 0.7;
+}
+
+#sessionList li {
+    list-style: circle;
+    display:list-item;
+}
+

@@ -19,7 +19,7 @@
             </tr>
             {% for session in sessions %}
             <tr>
-                <td><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></td>
+                <td><b><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></b></td>
                 <td>{{ session.startDate | date("m/d/Y") }}</td>
                 <td>{{ session.endDate | date("m/d/Y") }}</td>
                 <td>{{ session.totalNumber }}</td>

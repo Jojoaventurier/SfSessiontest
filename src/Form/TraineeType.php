@@ -17,15 +17,28 @@ class TraineeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstName', TextType::class)
-            ->add('lastName', TextType::class)
-            ->add('gender', TextType::class)
+            ->add('firstName', TextType::class, [
+                'label' => 'Prénom'
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'Nom de famille'
+            ])
+            ->add('gender', TextType::class, [
+                'label' => 'Sexe'
+            ])
             ->add('birthDate', DateType::class, [
                 'widget' => 'single_text',
+                'label' => 'Date de naissance'
             ])
-            ->add('email', EmailType::class) 
-            ->add('phoneNumber', TelType::class) 
-            ->add('city', TextType::class) 
+            ->add('email', EmailType::class, [
+                'label' => 'Adresse email'
+            ]) 
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Numéro de téléphone'
+            ]) 
+            ->add('city', TextType::class, [
+                'label' => 'Ville'
+            ]) 
             ->add('valider', SubmitType::class)
         ;
     }

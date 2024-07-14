@@ -19,17 +19,24 @@ class SessionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('totalNumber', IntegerType::class)
-            ->add('sessionName', TextType::class)
+            ->add('totalNumber', IntegerType::class, [
+                'label' => 'Nombre total de places'
+            ])
+            ->add('sessionName', TextType::class, [
+                'label' => 'Nom de la session'
+            ])
             ->add('startDate', DateType::class, [
                 'widget' => 'single_text',
+                'label' => 'Date de démarrage'
             ])
             ->add('endDate', DateType::class, [
                 'widget' => 'single_text',
+                'label' => 'Date de fin'
             ])
             ->add('training', EntityType::class, [
                 'class' => Training::class,
                 'choice_label' => 'trainingName',
+                'label' => 'Choix du stage'
             ])
             ->add('valider', SubmitType::class)
         ;
