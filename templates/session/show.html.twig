@@ -57,7 +57,7 @@
                 {% endif %} #}
                     <tr>
                         <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
-                        <td><a href="">Désinscrire</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                        <td><a href="{{ path('unregister_trainee', {'session': session.id, 'trainee': trainee.id}) }}">Désinscrire</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
                     </tr>
                 {% endfor %}
             </table>

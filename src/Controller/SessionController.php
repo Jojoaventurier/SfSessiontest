@@ -92,9 +92,9 @@ class SessionController extends AbstractController
          $session->removeTrainee($trainee);
          $trainee->removeSession($session);
 
-         $entityManager->remove($trainee);
-         $entityManager->remove($session);
-         $entityManager->flush();
+        //  $entityManager->remove($trainee);
+        //  $entityManager->remove($session);
+        //  $entityManager->flush();
 
          return $this->redirectToRoute('app_session');
     }
