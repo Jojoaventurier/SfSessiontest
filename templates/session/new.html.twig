@@ -13,28 +13,22 @@
                 <h1>Ajouter une session</h1>
             {% endif %}
 
-
-            {{ form_start(formAddSession) }}
+            {{ form_start(formAddSession) }} <!--Génération du formulaire d'ajout/modification-->
                 
                         {{ form_row(formAddSession.sessionName) }}
                         {{ form_row(formAddSession.startDate) }}
                         {{ form_row(formAddSession.endDate) }}
                         {{ form_row(formAddSession.training) }}
-                      
-                
             {{ form_end(formAddSession) }}
-
-
 
         </div>
     </div>
 
     {% if edit %}
-        {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la fiche</a> #}
+        <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la fiche</a>
+        <p>(Attention cette action est irréversible)</p>
     {% endif %}
 
 </div>
-
-   
 
 {% endblock %}
