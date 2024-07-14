@@ -86,7 +86,7 @@ class SessionController extends AbstractController
          return $this->redirectToRoute('app_session');
     }
 
-    #[Route('/session/{session}/add/{trainee}', name: 'unregister_trainee')]
+    #[Route('/session/{session}/remove/{trainee}', name: 'unregister_trainee')]
     public function unregister(Session $session, Trainee $trainee, EntityManagerInterface $entityManager) {
 
          $session->removeTrainee($trainee);
