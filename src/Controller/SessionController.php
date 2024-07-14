@@ -52,6 +52,15 @@ class SessionController extends AbstractController
         ]);
     }
 
+    #[Route('/session/{id}/delete', name: 'delete_session')]
+    public function delete(Trainee $session, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($session);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_session');
+    }
+
     #[Route('/session/{id}', name: 'show_session')]
     public function show(Session $session, SessionRepository $sessionRepository, ProgramRepository $programRepository): Response
     {   
@@ -75,7 +84,20 @@ class SessionController extends AbstractController
          $entityManager->flush();
 
          return $this->redirectToRoute('app_session');
-
     }
+
+    #[Route('/session/{session}/add/{trainee}', name: 'unregister_trainee')]
+    public function unregister(Session $session, Trainee $trainee, EntityManagerInterface $entityManager) {
+
+         $session->removeTrainee($trainee);
+         $trainee->removeSession($session);
+
+         $entityManager->remove($trainee);
+         $entityManager->remove($session);
+         $entityManager->flush();
+
+         return $this->redirectToRoute('app_session');
+    }
+
     
 }

@@ -16,7 +16,6 @@
                 <th class="verysmall">Nb total</th>
                 <th class="verysmall">Nb réservées</th>
                 <th class="verysmall">Nb restantes</th>
-                <th class="verysmall">Détail programme</th>
             </tr>
             {% for session in sessions %}
             <tr>
@@ -26,7 +25,6 @@
                 <td>{{ session.totalNumber }}</td>
                 <td>{{ session.numberBooked}}</td>
                 <td>{{ session.numberLeft }}</td>
-                <td>Détail</td>
             </tr>
             {% endfor %}
         </table>

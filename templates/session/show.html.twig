@@ -70,16 +70,19 @@
                 </tr>
 
                 {% for trainee in trainees %}
-                        <tr>
-                            <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td>
-                            <td><a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a></td>
-                        </tr>
+                <tr>
+                    <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td>
+                    <td><a class="" href="{{ path('register_trainee', {'session': session.id, 'trainee': trainee.id }) }}">Inscrire</a></td>
+                </tr>
                 {% endfor %}
             </table>
         </div>
-        {% endif %}
-    
     </div>
+        <div class ="wrapper margintop">
+            <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a>
+        </div>
+        {% endif %}
+
 
 {% endblock %}
 
