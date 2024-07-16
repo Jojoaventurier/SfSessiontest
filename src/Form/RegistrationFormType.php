@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -36,10 +37,20 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passes ne correspondent pas.',
-                'options' => ['attr' => ['class' => 'password-field']],
+                'options' => [
+                    'attr' => ['class' => 'password-field']],
                 'required' => true,
                 'first_options'  => ['label' => 'Mot de passe'],
                 'second_options' => ['label' => 'Confirmez votre mot de passe'],
+                // 'constraints' => [
+                //     new NotBlank([
+                //         'message' => 'Veuillez entrer votre mot de passe'
+                //     ]),
+                //     new Regex([
+                //         'pattern' => '/^(?=.*[a-z])(?=*[A-Z])(?=.*\d)(?=*[^a-zA-Z\d]).{8,}$/',
+                //         'message' => 'Votre message doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
+                //     ])
+                // ]
             ]);
     }
 
