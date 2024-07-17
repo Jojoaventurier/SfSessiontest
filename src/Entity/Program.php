@@ -66,7 +66,7 @@ class Program
     }
 
     public function __toString() {
-        return $this->session;
+        return $this->unit;
     }
 
  

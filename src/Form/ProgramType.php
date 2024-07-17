@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ProgramType extends AbstractType
 {
@@ -22,12 +21,14 @@ class ProgramType extends AbstractType
             ->add('unit', EntityType::class, [
                 'class' => Unit::class,
                 'choice_label' => 'unitName',
-                'label' => 'Module'
+                'label' => 'Module',
+                'query_builder' => function (EntityRepository $er){
+                    return $er->createQueryBuilder('a')
+                    ->orderBy('a.unitName','ASC');}
             ])
             ->add('numberOfDays', IntegerType::class, [
                 'label' => 'Durée du module (en jours)'
-            ])
-            
+            ])    
             ->add('valider', SubmitType::class) // (ne pas oublier d'importer les classes que l'on rajoute manuellement au formulaire)
         ;
     }
