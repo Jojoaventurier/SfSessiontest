@@ -22,33 +22,33 @@ class RegistrationController extends AbstractController
     public function __construct(private EmailVerifier $emailVerifier)
     {
     }
-
+    // fibction pour l'inscription d'un utilisateur
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
-        $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $user = new User(); // création d'un nouvel objet User
+        $form = $this->createForm(RegistrationFormType::class, $user); // création du formulaire d'enregistrement
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { // si le formulaire est soumis et valide
             // encode the plain password
             $user->setPassword(
-                $userPasswordHasher->hashPassword(
+                $userPasswordHasher->hashPassword( // on hashe le password avant stockage en BDD
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
 
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $entityManager->persist($user); // on prépare la requête d'ajout de l'utilisateur à la BDD
+            $entityManager->flush(); // on exécute la requête
 
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('admin@exemple.com', 'Admin Site'))
+                    ->from(new Address('admin@exemple.com', 'Admin Site')) // nom et adresse qui envoie le mail de confirmation de l'adresse email
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
+                    ->subject('Confirmez votre adresse email s\'il vous plaît') // objet du mail envoyé
+                    ->htmlTemplate('registration/confirmation_email.html.twig') // template utilisé pour la vue du mail envoyé
             );
 
             // do anything else you need here, like send an email
@@ -61,6 +61,7 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+    // fonction qui vérifie l'utilisateur une fois qu'il a cliqué sur le lien dans l'email reçu
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {

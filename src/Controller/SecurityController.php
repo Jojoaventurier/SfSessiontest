@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
-{
+{   // fonction pour la connection de l'utilisateur
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -23,7 +23,7 @@ class SecurityController extends AbstractController
             'error' => $error,
         ]);
     }
-
+    // fonction pour la déconnection de l'utilisateur
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {

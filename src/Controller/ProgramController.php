@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProgramController extends AbstractController
 {
+    // fonction pour éditer un programme affilié à une session spécifique 
     #[Route('/program/session/{id}', name: 'edit_program')]
     public function edit(Session $session, ProgramRepository $programRepository): Response
     {   
