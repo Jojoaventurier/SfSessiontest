@@ -21,15 +21,6 @@
                         {{ form_row(formAddSession.training) }}
             {{ form_end(formAddSession) }}
         </div>
-
-        <div>
-            <div id="program-fields-list"
-                data-prototype="{{ form_widget(form.programs.vars.prototype)|e }}"
-                data-session="{{ sessionId }}">
-
-            </div>
-        </div>
-
     </div>
 
     {% if edit %}

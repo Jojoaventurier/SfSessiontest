@@ -51,7 +51,6 @@ class SessionController extends AbstractController
             'formAddSession' => $form,
             'edit' => $session->getId(), // on récupère l'id de la session à éditer
             'session' => $session,
-            'sessionId' => $session->getId()
         ]);
     }
 

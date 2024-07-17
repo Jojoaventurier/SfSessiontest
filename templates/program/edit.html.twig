@@ -26,12 +26,31 @@
                 {% endfor %}
             </table>
         </div>
-        
     </div>
 
     <h2>Ajouter un module au programme</h2>
 
-    {{ form(formAddProgram) }}
+    <div>
+        <div>&nbsp;</div>
+        <div id="program-fields-list" class="remove-collection-type"
+            data-prototype="{{ form_widget(form.programs.vars.prototype)|e }}"
+            data-session="{{ session.id }}"
+            data-widget-tags="{{ form.programs|length }}">
+            {% for programField in form.programs %}
+                <p>
+                    {{ form_errors(programField) }}
+                    {{ form_widget(programField, {'attr': {'class': 'borders'}}) }}
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <button type="button"
+            class="add-another-collection-widget button"
+            data-list-selector="#program-fields-list">Ajouter un nouveau module</button>
+    </div>
+
+    {# {{ form(form) }} #}
 
 </div>
 

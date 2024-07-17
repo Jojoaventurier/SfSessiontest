@@ -23,7 +23,7 @@ class ProgramController extends AbstractController
         return $this->render('program/edit.html.twig', [
             'programs' => $programs,
             'session' => $session,
-            'formAddProgram' => $form
+            'form' => $form
         ]);
     }
 
