@@ -20,14 +20,17 @@ class ProgramType extends AbstractType
             ->add('session', EntityType::class, [
                 'class' => Session::class,
                 'choice_label' => 'sessionName', //choix du champs récupéré pour la créaiton du formulaire (le nom doit être celui qui correspond dans l'entité pas dans la BDD)
-                'label' => 'Nom de la session'
+                'label' => 'Nom de la session' // label affiché
             ])
             ->add('unit', EntityType::class, [
                 'class' => Unit::class,
                 'choice_label' => 'unitName',
+                'label' => 'Module'
             ])
-            ->add('numberOfDays', IntegerType::class)
-            ->add('valider', SubmitType::class) // ne pas oublier d'importer les classes que l'on rajoute
+            ->add('numberOfDays', IntegerType::class, [
+                'label' => 'Durée du module (en jours)'
+            ])
+            ->add('valider', SubmitType::class) // (ne pas oublier d'importer les classes que l'on rajoute manuellement au formulaire)
         ;
     }
 

@@ -24,7 +24,7 @@ class Unit
     /**
      * @var Collection<int, Program>
      */
-    #[ORM\OneToMany(targetEntity: Program::class, mappedBy: 'unit')]
+    #[ORM\OneToMany(targetEntity: Program::class, mappedBy: 'unit')] // Collection de programmes dans lesquels le module est présent
     private Collection $programs;
 
     public function __construct()
@@ -69,6 +69,7 @@ class Unit
         return $this->programs;
     }
 
+    // ajouter un programme au module
     public function addProgram(Program $program): static
     {
         if (!$this->programs->contains($program)) {
@@ -78,7 +79,7 @@ class Unit
 
         return $this;
     }
-
+    // enlever un programme d'un module
     public function removeProgram(Program $program): static
     {
         if ($this->programs->removeElement($program)) {
