@@ -118,6 +118,7 @@ td {
     border: 2px solid lightgrey;
 }
 
+/*hover pour les lignes des tables contenant un lien cliquable*/
 .linkhover:hover {
     background-color: rgb(21,56,178, 0.6);
     opacity: 1;
