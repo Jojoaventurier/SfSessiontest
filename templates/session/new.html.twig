@@ -19,6 +19,28 @@
                         {{ form_row(formAddSession.startDate) }}
                         {{ form_row(formAddSession.endDate) }}
                         {{ form_row(formAddSession.training) }}
+                        {{ form_row(formAddSession.totalNumber) }}
+
+                        <div class="form-group row">
+                            <div class="col-form-label col-sm-2">&nbsp;</div>
+                            <div id="program-fields-list" class="col-sm-10 remove-collection-widget"
+                                data-prototype="{{ form_widget(formAddSession.programs.vars.prototype)|e }}"
+                                data-session="{{ session.id }}"
+                                data-widget-tags="{{ '<p></p>'|e }}"
+                                data-widget-counter="{{ formAddSession.programs|length }}">
+                            {% for programField in formAddSession.programs %}
+                                <p>
+                                    {{ form_errors(programField) }}
+                                    {{ form_widget(programField, {'attr': {'class': 'borders'}}) }}
+                                </p>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div>
+                            <button type="form-group  row button"
+                                class="add-another-collection-widget button"
+                                data-list-selector="#program-fields-list">Ajouter un nouveau module</button>
+                        </div>
             {{ form_end(formAddSession) }}
         </div>
     </div>
