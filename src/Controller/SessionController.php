@@ -44,7 +44,7 @@ class SessionController extends AbstractController
             $entityManager->persist($session); // on prépare la requête d'ajout à la BDD
             $entityManager->flush(); // on exécute la requête
 
-            return $this->redirectToRoute('app_session');
+            return $this->redirectToRoute('edit_session', ['id' =>$session->getId()]);
         }
 
         return $this->render('session/new.html.twig', [ // vue retournée pour l'affichage

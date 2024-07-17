@@ -36,7 +36,7 @@ class Session
     /**
      * @var Collection<int, Program>
      */
-    #[ORM\OneToMany(targetEntity: Program::class, mappedBy: 'session')]
+    #[ORM\OneToMany(targetEntity: Program::class, mappedBy: 'session', cascade: ['persist'], orphanRemoval: true)]
     private Collection $programs;
 
     /**
