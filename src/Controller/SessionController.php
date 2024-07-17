@@ -87,7 +87,7 @@ class SessionController extends AbstractController
          $entityManager->persist($session); // idem
          $entityManager->flush(); // on exécute les deux requêtes demandées
 
-         return $this->redirectToRoute('app_session');
+         return $this->redirectToRoute('show_session', ['id' =>$session->getId()]);
     }
 
     // fonction pour désinscrire un stagiaire d'une session
@@ -99,7 +99,7 @@ class SessionController extends AbstractController
 
          $entityManager->flush();
 
-         return $this->redirectToRoute('app_session');
+         return $this->redirectToRoute('show_session', ['id' =>$session->getId()]);
     }
 
     
