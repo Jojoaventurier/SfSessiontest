@@ -12,7 +12,7 @@
                 </tr>
                 {% for trainee in trainees %}
                     <tr>
-                    <td><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
+                    <td class="linkhover"><a href="{{ path('show_trainee', {'id': trainee.id}) }}">{{ trainee }}</a></td> <!--lien vers l'affichage du détail d'un stagiaire-->
                     </tr>
                 {% endfor %}
             </table>

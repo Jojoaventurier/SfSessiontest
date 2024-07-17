@@ -19,7 +19,7 @@
             </tr>
             {% for session in sessions %}
             <tr>
-                <td><b><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></b></td>
+                <td class="linkhover"><b><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></b></td>
                 <td>{{ session.startDate | date("m/d/Y") }}</td> <!-- le filtre date() de twig permet la conversion de startDate (objet DateTime) en string -->
                 <td>{{ session.endDate | date("m/d/Y") }}</td>
                 <td>{{ session.totalNumber }}</td> <!-- nombre de places totales pour la session -->

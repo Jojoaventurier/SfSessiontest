@@ -118,19 +118,21 @@ td {
     border: 2px solid lightgrey;
 }
 
-td:hover {
+.linkhover:hover {
     background-color: rgb(21,56,178, 0.6);
     opacity: 1;
 }
 
 td a {
     text-decoration: none;
-    padding: 20px 80px;
+    padding: 10px 80px;
     color: black;
 }
 td:hover a {
     color: white;
 }
+
+
 
 /*==================================LISTE SESSIONS=================================== */
 
