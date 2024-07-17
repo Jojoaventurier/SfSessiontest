@@ -16,6 +16,9 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
+
+use Symfony\Component\Validator\Constraints as Assert;
+
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -42,15 +45,15 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'first_options'  => ['label' => 'Mot de passe'],
                 'second_options' => ['label' => 'Confirmez votre mot de passe'],
-                // 'constraints' => [
-                //     new NotBlank([
-                //         'message' => 'Veuillez entrer votre mot de passe'
-                //     ]),
-                //     new Regex([
-                //         'pattern' => '/^(?=.*[a-z])(?=*[A-Z])(?=.*\d)(?=*[^a-zA-Z\d]).{8,}$/',
-                //         'message' => 'Votre message doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
-                //     ])
-                // ]
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Veuillez entrer un mot de passe'
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
+                        'message' => 'Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et avoir au moins 8 caractères.',
+                        ])
+                ]
             ]);
     }
 
