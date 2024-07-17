@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ProgramType extends AbstractType
 {
@@ -29,6 +30,11 @@ class ProgramType extends AbstractType
             ])
             ->add('numberOfDays', IntegerType::class, [
                 'label' => 'Durée du module (en jours)'
+            ])
+            ->add('programs', CollectionType::class, [
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
             ])
             ->add('valider', SubmitType::class) // (ne pas oublier d'importer les classes que l'on rajoute manuellement au formulaire)
         ;
