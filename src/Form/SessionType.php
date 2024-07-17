@@ -41,6 +41,7 @@ class SessionType extends AbstractType
                 'label' => 'Choix du stage'
             ])
             ->add('programs', CollectionType::class, [
+                'entry_type' => ProgramType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,

@@ -22,9 +22,9 @@ class ProgramType extends AbstractType
                 'class' => Unit::class,
                 'choice_label' => 'unitName',
                 'label' => 'Module',
-                'query_builder' => function (EntityRepository $er){
-                    return $er->createQueryBuilder('a')
-                    ->orderBy('a.unitName','ASC');}
+                // 'query_builder' => function (EntityRepository $er){
+                //     return $er->createQueryBuilder('a')
+                //     ->orderBy('a.unitName','ASC');}
             ])
             ->add('numberOfDays', IntegerType::class, [
                 'label' => 'Durée du module (en jours)'
