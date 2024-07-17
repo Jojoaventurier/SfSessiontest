@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints as Assert; //on utilise Assert pour les contraintes que l'on souhaite imposer sur la création de mot de passe
 
 class RegistrationFormType extends AbstractType
 {
@@ -46,11 +46,11 @@ class RegistrationFormType extends AbstractType
                 'first_options'  => ['label' => 'Mot de passe'],
                 'second_options' => ['label' => 'Confirmez votre mot de passe'],
                 'constraints' => [
-                    new Assert\NotBlank([
+                    new Assert\NotBlank([ // le mot de passe ne doit pas être vide
                         'message' => 'Veuillez entrer un mot de passe'
                     ]),
                     new Assert\Regex([
-                        'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/',
+                        'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/', // pattern imposé pour la création du mot de passe
                         'message' => 'Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et avoir au moins 8 caractères.',
                         ])
                 ]

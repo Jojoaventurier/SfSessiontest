@@ -41,7 +41,7 @@ class UnitRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    public function findUnitsBySession($session): array
+    public function findUnitsBySession($session): array // permet de récupérer tous les modules enregistrés pour une session spécifique
     {
         return $this->createQueryBuilder('u')
             ->andWhere('u.session = :val')

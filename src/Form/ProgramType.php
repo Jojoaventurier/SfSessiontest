@@ -19,7 +19,7 @@ class ProgramType extends AbstractType
         $builder
             ->add('session', EntityType::class, [
                 'class' => Session::class,
-                'choice_label' => 'sessionName',
+                'choice_label' => 'sessionName', //choix du champs récupéré pour la créaiton du formulaire (le nom doit être celui qui correspond dans l'entité pas dans la BDD)
                 'label' => 'Nom de la session'
             ])
             ->add('unit', EntityType::class, [
@@ -27,14 +27,14 @@ class ProgramType extends AbstractType
                 'choice_label' => 'unitName',
             ])
             ->add('numberOfDays', IntegerType::class)
-            ->add('valider', SubmitType::class)
+            ->add('valider', SubmitType::class) // ne pas oublier d'importer les classes que l'on rajoute
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Program::class,
+            'data_class' => Program::class, 
         ]);
     }
 }

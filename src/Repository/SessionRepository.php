@@ -39,10 +39,7 @@ class SessionRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
-    //   récupérer les stagiaires non inscrit demandera en id  l'id de la session
-    //   on va selectionner tous les stagiaires d'une session dont l'id est passée en parametres
-    //   on selectionne tous les stagiaires qui ne sont pas dans le résultat précédent
-      
+      // Permet de récupérer tous les stagiaires non inscrits à une session
        public function getTraineesNotRegistered($id) {
 
         $em = $this->getEntityManager();

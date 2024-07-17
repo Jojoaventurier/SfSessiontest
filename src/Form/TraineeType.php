@@ -17,8 +17,8 @@ class TraineeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstName', TextType::class, [
-                'label' => 'Prénom'
+            ->add('firstName', TextType::class, [ // filtres utilisant les classes natives de symfony
+                'label' => 'Prénom' // label affiché sur la page pour l'utilisateur
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'Nom de famille'

@@ -19,10 +19,10 @@ class SessionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('totalNumber', IntegerType::class, [
-                'label' => 'Nombre total de places'
+            ->add('totalNumber', IntegerType::class, [ // filtres utilisant les classes natives de symfony
+                'label' => 'Nombre total de places' // label affiché sur la page pour l'utilisateur
             ])
-            ->add('sessionName', TextType::class, [
+            ->add('sessionName', TextType::class, [ 
                 'label' => 'Nom de la session'
             ])
             ->add('startDate', DateType::class, [
