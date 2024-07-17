@@ -44,14 +44,14 @@ $(document).ready(function() { // Une fois que le document (base.html.twig) HTML
         showModalConfirm(id, href, "Confirmation de suppression d'une session")
     })
     // remove-stagiaire.js : fonction permettant de demander la confirmation de suppression d'un stagiaire
-    $('.remove-stagiaire-confirm').on('click', function(e) {
+    $('.remove-trainee-confirm').on('click', function(e) {
         e.preventDefault()
         let id=$(this).data('id')
         let href=$(this).attr('href')
         showModalConfirm(id, href, "Confirmation de suppression d'un stagiaire")
     })
     // anonymize-stagiaire.js : fonction permettant de demander la confirmation d'anonymisation d'un stagiaire
-    $('.anonymize-stagiaire-confirm').on('click', function(e) {
+    $('.anonymize-trainee-confirm').on('click', function(e) {
         e.preventDefault()
         let id=$(this).data('id')
         let href=$(this).attr('href')
