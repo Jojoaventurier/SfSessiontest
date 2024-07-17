@@ -4,41 +4,4 @@
 
 {% block body %}
 
-
-
-<div class="wrapper">
-
-    <div class="centered wrapper">
-        <h1>Programme de la session :</h1>
-        <h2><a href="{{ path('show_session', {'id': session.id}) }}">{{ session }}</a></h2>
-        <p>du {{ session.startDate | date('d.m.Y') }} au {{ session.endDate | date('d.m.Y') }}</p>
-
-        <div class="table">
-            <table>
-                <tr>
-                    <th>Modules</th><th>Durée</th>
-                </tr>
-
-                {% for program in programs %}
-                <tr>
-                    <td>{{ program.unit }}</td><td>{{ program.numberOfDays }} jours</td><br>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-    </div>
-
-
-    <h2>Ajouter un module au programme</h2>
-{{ form_start(form) }}
-
-   
-    
-{{ form_end(form) }}
-
-    {# {{ form(form) }} #}
-
-</div>
-
-
 {% endblock %}

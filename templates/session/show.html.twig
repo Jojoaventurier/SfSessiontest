@@ -30,17 +30,8 @@
                         </tr>
                     {% endfor %}
                 </table>
-
-                {% if is_granted('ROLE_ADMIN') %}
-                <div class="btnDiv btnSize wrapper">
-                    <a class="btn" href="{{ path('edit_program', {'id': session.id}) }}">Ajouter/Supprimer un module</a>
-                </div>
-                {% endif %}
             </div>
         </div>
-        
-        
-        {# <a href="{{ path('delete_session', {'id': session.id}) }}" class='deleteBtn'>Supprimer la session</a> #}
     </div>
 
     <div class="wrapperRow">
