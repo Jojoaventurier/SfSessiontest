@@ -1,6 +1,7 @@
 Ce projet est une application web permettant d'afficher, créer et supprimer des sessions de formations. Chaque session inclut un ensemble de modules, pouvant varier en durée selon les sessions proposées. Les utilisateurs peuvent inscrire ou désinscrire des stagiaires aux sessions de formations. Une interface utilisateur est mise en place pour que seules les personnes avec un rôle d'administrateur puissent effectuer des modifications, tandis qu'un utilisateur normal peut seulement consulter les sessions de formation.
 
-    Objectifs du Projet
+Objectifs du Projet
+
     Modélisation des relations entre les entités du projet.
     Création d'un projet Symfony.
     Création et manipulation des entités.
