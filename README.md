@@ -38,6 +38,7 @@ Fonctionnalités
 
     Symfony pour le framework web.
     Doctrine pour la gestion des entités et des requêtes DQL.
+    JQUERY pour la gestion de des modules d'une session.
 
     
 Cette application offre une gestion complète des sessions de formations, avec un contrôle d'accès basé sur les rôles des utilisateurs. Elle facilite la gestion des stagiaires et des modules de formation, tout en fournissant une interface conviviale et sécurisée pour les administrateurs.
