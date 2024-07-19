@@ -14,4 +14,10 @@ final class DiscordController
     public function login(Request $request, ClientRegistry $clientRegistry)
     {
     }
+
+    #[Route("/start", name: "start")]
+    public function start(ClientRegistry $clientRegistry): RedirectResponse
+    {
+        return $clientRegistry->getClient("discord")->redirect(["identify"]);
+    }
 }

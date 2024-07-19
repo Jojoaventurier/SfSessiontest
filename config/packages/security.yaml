@@ -16,6 +16,9 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            custom_authenticators:
+                - App\Security\DiscordAuthenticator
+            entry_point: form_login
             form_login:
                 login_path: app_login
                 check_path: app_login
