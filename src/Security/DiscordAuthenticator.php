@@ -7,13 +7,11 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\RouterInterface;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Wohali\OAuth2\Client\Provider\DiscordResourceOwner;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use KnpU\OAuth2ClientBundle\Security\Authenticator\OAuth2Authenticator;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -48,12 +46,14 @@ final class DiscordAuthenticator extends OAuth2Authenticator implements Authenti
     {
         $client = $this->clientRegistry->getClient("discord");
         $accessToken = $this->fetchAccessToken($client);
+        
 
         return new SelfValidatingPassport(
             new UserBadge($accessToken->getToken(), function () use ($accessToken, $client) {
                 /** @var DiscordResourceOwner $discordUser */
                 $discordUser = $client->fetchUserFromToken($accessToken);
-
+                dd($discordUser);
+                
                 $user = $this->userRepository->findOneBy(["discordId" => $discordUser->getId()]);
 
                 if (null === $user) {
@@ -71,12 +71,14 @@ final class DiscordAuthenticator extends OAuth2Authenticator implements Authenti
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
-    {
-        return new RedirectResponse();
+    {   
+        return new RedirectResponse($this->urlGenerator->generate('app_home'));
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
-    {
-        return new RedirectResponse($this->urlGenerator->generate('app_home'));
+    {   
+        $message = "L'authentification n'a pas fonctionné";
+
+        return new Response($message, Response::HTTP_FORBIDDEN);
     }
 }

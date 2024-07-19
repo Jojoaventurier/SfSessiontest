@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 #[AsController]
 #[Route("/auth/discord", name: "auth_discord_")]
