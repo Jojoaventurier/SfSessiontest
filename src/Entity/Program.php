@@ -22,7 +22,7 @@ class Program
     #[ORM\ManyToOne(inversedBy: 'programs')]
     private ?Unit $unit = null;
 
- 
+
 
     public function getId(): ?int
     {
