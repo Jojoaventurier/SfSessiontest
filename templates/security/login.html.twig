@@ -30,6 +30,9 @@
             Se connecter
         </button>
     </form>
+    {% set url = 'https://discord.com/oauth2/authorize?client_id=1263504416040943709&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fauth%2Fdiscord%2Flogin&scope=identify' %}
+<a href="{{ url }}">Se connecter avec Discord</a>
+
     </div>
         {#
             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.

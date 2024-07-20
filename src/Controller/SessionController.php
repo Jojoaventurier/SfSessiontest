@@ -15,6 +15,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SessionController extends AbstractController
 {   
+
+    #[Route('/home', name: 'app_home')]
+    public function home(): Response
+    {
+        return $this->render('session/home.html.twig');
+    }
+
+
     // fonction pour afficher la liste des sessions enregistrées en BDD
     #[Route('/session', name: 'app_session')]
     public function index(SessionRepository $sessionRepository): Response
