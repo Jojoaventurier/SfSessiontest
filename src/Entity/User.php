@@ -39,9 +39,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $userName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $discordId = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -141,15 +138,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getDiscordId(): ?string
-    {
-        return $this->discordId;
-    }
 
-    public function setDiscordId(?string $discordId): static
-    {
-        $this->discordId = $discordId;
-
-        return $this;
-    }
 }
