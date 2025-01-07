@@ -1,6 +1,6 @@
 Ce projet est une application web permettant d'afficher, créer et supprimer des sessions de formations. Chaque session inclut un ensemble de modules, pouvant varier en durée selon les sessions proposées. Les utilisateurs peuvent inscrire ou désinscrire des stagiaires aux sessions de formations. Une interface utilisateur est mise en place pour que seules les personnes avec un rôle d'administrateur puissent effectuer des modifications, tandis qu'un utilisateur normal peut seulement consulter les sessions de formation.
 
-Objectifs du Projet
+<strong>Objectifs du Projet</strong>
 
     Modélisation des relations entre les entités du projet.
     Création d'un projet Symfony.
@@ -10,7 +10,7 @@ Objectifs du Projet
     Utilisation de Doctrine et DQL pour les requêtes vers la base de données.
 
 
-Fonctionnalités
+<strong>Fonctionnalités</strong>
 
   Sessions de Formations :
   
@@ -42,3 +42,9 @@ Fonctionnalités
 
     
 Cette application offre une gestion complète des sessions de formations, avec un contrôle d'accès basé sur les rôles des utilisateurs. Elle facilite la gestion des stagiaires et des modules de formation, tout en fournissant une interface conviviale et sécurisée pour les administrateurs.
+
+Aperçu du projet : 
+
+![sessions1](https://github.com/user-attachments/assets/52efeebd-695d-4791-8807-22b48c09c442)
+![Capture d’écran 2025-01-07 170756](https://github.com/user-attachments/assets/67084932-5000-486b-9d84-5292e149ee7f)
+
